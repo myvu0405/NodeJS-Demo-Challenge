@@ -1,0 +1,22 @@
+<%- include('./components/header') %>
+
+<% if(result.length >0) { %>
+    <% result.forEach(ele => { %>
+
+        <div class="card" >
+            <div class="card-body">
+              <h5 class="card-title"><a href='/article/<%=ele._id%>'><%= ele.title %></a></h5>
+              <p class="card-text"><%= ele.article %></p>
+              
+            </div>
+        </div>
+
+        
+        
+    <%}) %>
+<% } else { %>
+    <h1>No article returned!</h1>
+<% } %>
+ 
+    
+<%- include('./components/footer') %>

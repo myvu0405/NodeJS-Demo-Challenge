@@ -1,0 +1,49 @@
+<%- include('./components/header') %>
+<form id="newFeed" method="POST" action="/feed">
+    <button type="submit" id="summit" class="btn btn-primary">Add a feed</button>
+    <div>
+        <br>
+        <% if (feed) { %>
+            
+            <input name="name" value="<%=feed.name%>" id="feedName" type="text" placeholder="Name">
+        <% } else { %>
+            <input name="name" value="" id="feedName" type="text" placeholder="Name">
+        <% } %>
+        <br><br>
+        <% if(err.name) {%>
+            <p class="error"><%= err.name.message%></p>
+        <% } %>
+        <% if (feed) { %>
+            <textarea name="message" id="feedMessage" cols="80" rows="5" placeholder="Message"><%=feed.message%></textarea>
+        <% }  else {%>
+            <textarea name="message" id="feedMessage" cols="80" rows="5" placeholder="Message"></textarea>
+        <% } %>
+        <% if(err.message) {%>
+            <p class="error"><%= err.message.message%></p>
+        <% } %>
+    </div>
+</form>
+<% if(result.length >0) { %>
+    <% result.forEach(feed => { %>
+
+        <div class="card" >
+            
+                <div class="card-body">
+                    <h3 class="card-title title"><%= feed.name %></h3>
+                    <p class="card-text description"><%= feed.message %></p>
+                    
+                    <p class="feed-time"><%=feed.updatedAt%></p>
+                    <a href="/feed/<%=feed._id%>">See more</a>
+                </div>
+           
+        </div>
+
+        
+        
+    <%}) %>
+<% } else { %>
+    <h1>No feeds returned!</h1>
+<% } %>
+ 
+    
+<%- include('./components/footer') %>

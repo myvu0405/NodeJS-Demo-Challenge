@@ -1,15 +1,43 @@
 body{
-    color: darkcyan
+    color: darkcyan;
+    width: 80%;
+    margin: auto;
+}
+
+.menu {
+    
+    color: #006400;
+    font-size: x-large;
+    font-weight: bold;
+}
+.menu:hover {
+    text-decoration: underline;
+    background: cadetblue;
 }
 
 .card{
-    margin: 10px;
+    margin: 15px 20px;
+}
+.card-link{
+    text-decoration: none;
+}
+.title{
+    color: darkgreen;
+}
+
+.card:hover {
+    background: lightpink;
 }
 
 form{
-    margin: 10%;
+    margin: 20px;
 }
 .error{
     color: red;
     font-size: small;
+}
+
+.feed-time{
+    font-size: small;
+    color: black;
 }

@@ -1,0 +1,23 @@
+<%- include('./components/header') %>
+<h4>Edit a feed</h4>
+<form method="POST" action='/feed/edit/<%=result._id%>'>
+    <div class="mb-3">
+      <label class="form-label">Name</label>
+      <input type="text" name='name' value="<%= result.name %>" class="form-control" id="name" aria-describedby="emailHelp">
+      <% if(err.name) {%>
+        <p class="error"><%= err.name.message%></p>
+      <% } %>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Message</label>
+      <textarea name='message' class="form-control" id="message"><%= result.message %></textarea>
+      <% if(err.message) {%>
+        <p class="error"><%= err.message.message%></p>
+      <% } %>
+    </div>
+
+    
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+
+<%- include('./components/footer') %>

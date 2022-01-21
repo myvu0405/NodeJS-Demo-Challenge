@@ -1,0 +1,22 @@
+<%- include('./components/header') %>
+
+<% if(result) {%>
+
+        <div class="card">
+            <div class="card-body">
+              <h5 class="card-title"><%= result.name %></h5>
+              <p class="card-text"><%= result.message %></p>
+              <p class="card-text feed-time"><%= result.updatedAt %></p>
+              <a href="/feed/edit/<%= result._id %>" class="btn btn-primary">Update Feed</a>
+              <a href="/feed/delete/<%= result._id%>" class="btn btn-danger">Delete Feed</a>
+            </div>
+        </div>
+
+        
+        
+   
+<% } else { %>
+    <h1>No feed returned!</h1>
+<% } %>
+
+<%- include('./components/footer') %>

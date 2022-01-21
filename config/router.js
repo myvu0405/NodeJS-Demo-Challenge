@@ -3,15 +3,15 @@ const router=express.Router();
 
 const controller = require('../controllers/handlers')
 
-router.get('/', controller.getHomePage);
-router.all('/add-article', controller.postNewArticle);
+router.get('/feed', controller.getHomePage);
+router.post('/feed', controller.addOneFeed);
 
-//show one article
-router.get('/article/:id', controller.getArticle);
+//show one feed
+router.get('/feed/:id', controller.getOneFeed);
 
-//edit/delete article
-router.all('/edit-article/:id', controller.editArticle);
-router.get('/delete-article/:id', controller.deleteArticle);
+//edit/delete feed
+router.all('/feed/edit/:id', controller.editOneFeed);
+router.get('/feed/delete/:id', controller.deleteOneFeed);
 
 
 
